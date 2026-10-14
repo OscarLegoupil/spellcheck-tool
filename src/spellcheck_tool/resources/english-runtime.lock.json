@@ -1,0 +1,743 @@
+{
+  "version": "6.6",
+  "artifacts": [
+    {
+      "name": "bcrypt-0.10.2.jar",
+      "url": "https://repo.maven.apache.org/maven2/at/favre/lib/bcrypt/0.10.2/bcrypt-0.10.2.jar",
+      "sha256": "0b1fb99db605955de904d8e61782a53dddbadd12619a0cf37dd88b5d14a61957",
+      "bytes": 40575
+    },
+    {
+      "name": "bytes-1.5.0.jar",
+      "url": "https://repo.maven.apache.org/maven2/at/favre/lib/bytes/1.5.0/bytes-1.5.0.jar",
+      "sha256": "b933631573148647943040d8d7496a64458b432610e6da2eb87ec3458814dee5",
+      "bytes": 80919
+    },
+    {
+      "name": "logback-classic-1.5.18.jar",
+      "url": "https://repo.maven.apache.org/maven2/ch/qos/logback/logback-classic/1.5.18/logback-classic-1.5.18.jar",
+      "sha256": "3e1533d0321f8815eef46750aee0111b41554f9a4644c3c4d2d404744b09f60f",
+      "bytes": 306760
+    },
+    {
+      "name": "logback-core-1.5.18.jar",
+      "url": "https://repo.maven.apache.org/maven2/ch/qos/logback/logback-core/1.5.18/logback-core-1.5.18.jar",
+      "sha256": "85139e7b57b464f8e5e36326dd81317648bed199ccc4f98cd42585f8d7571027",
+      "bytes": 627250
+    },
+    {
+      "name": "ecs-logging-core-1.3.2.jar",
+      "url": "https://repo.maven.apache.org/maven2/co/elastic/logging/ecs-logging-core/1.3.2/ecs-logging-core-1.3.2.jar",
+      "sha256": "5c07330c539c0445394d71673cf374fa220fd2bb38d1f4b4ac651d236f76c16d",
+      "bytes": 18426
+    },
+    {
+      "name": "logback-ecs-encoder-1.3.2.jar",
+      "url": "https://repo.maven.apache.org/maven2/co/elastic/logging/logback-ecs-encoder/1.3.2/logback-ecs-encoder-1.3.2.jar",
+      "sha256": "c93248f3c344685956b450616ad47cdcdfff9612761b88931261ba51ff4381ca",
+      "bytes": 10765
+    },
+    {
+      "name": "hppc-0.8.2.jar",
+      "url": "https://repo.maven.apache.org/maven2/com/carrotsearch/hppc/0.8.2/hppc-0.8.2.jar",
+      "sha256": "97e45d4e0106d98dd3e76d9610e0bd3895409bd1ab1ed189855b05af0571025e",
+      "bytes": 1179544
+    },
+    {
+      "name": "jackson-annotations-2.18.0.jar",
+      "url": "https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.18.0/jackson-annotations-2.18.0.jar",
+      "sha256": "a09367d2eeb526873abf737ff754c5085f82073a382ee72c3bbe15412217671f",
+      "bytes": 79108
+    },
+    {
+      "name": "jackson-core-2.18.0.jar",
+      "url": "https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-core/2.18.0/jackson-core-2.18.0.jar",
+      "sha256": "215bbd7c8fd65be504cb92ff3aa1c4b790fc7b14cca72f4546aac4143c101bb5",
+      "bytes": 596823
+    },
+    {
+      "name": "jackson-databind-2.18.0.jar",
+      "url": "https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.18.0/jackson-databind-2.18.0.jar",
+      "sha256": "2bf1927b7f3224683ed0157a1ec3b0ede75179da3e597d78c572d56ed00f9f3c",
+      "bytes": 1663219
+    },
+    {
+      "name": "caffeine-2.9.3.jar",
+      "url": "https://repo.maven.apache.org/maven2/com/github/ben-manes/caffeine/caffeine/2.9.3/caffeine-2.9.3.jar",
+      "sha256": "1e0a7bbef1dd791653143f3f05d0e489934bf5481e58a87c9e619cd46b68729b",
+      "bytes": 912143
+    },
+    {
+      "name": "waffle-jna-3.3.0.jar",
+      "url": "https://repo.maven.apache.org/maven2/com/github/waffle/waffle-jna/3.3.0/waffle-jna-3.3.0.jar",
+      "sha256": "301cb389402618a0a8e7fb56c4b47e20f1f9c774f99a3d7272435bae2d323580",
+      "bytes": 71735
+    },
+    {
+      "name": "hunspell-2.1.2.jar",
+      "url": "https://repo.maven.apache.org/maven2/com/gitlab/dumonts/hunspell/2.1.2/hunspell-2.1.2.jar",
+      "sha256": "973329ae3a43d35dacd618b93a5773a0a9210c8bf2b58a6b2d2a1e1c9f0389e9",
+      "bytes": 849577
+    },
+    {
+      "name": "annotations-4.1.1.4.jar",
+      "url": "https://repo.maven.apache.org/maven2/com/google/android/annotations/4.1.1.4/annotations-4.1.1.4.jar",
+      "sha256": "ba734e1e84c09d615af6a09d33034b4f0442f8772dec120efb376d86a565ae15",
+      "bytes": 3120
+    },
+    {
+      "name": "proto-google-common-protos-2.41.0.jar",
+      "url": "https://repo.maven.apache.org/maven2/com/google/api/grpc/proto-google-common-protos/2.41.0/proto-google-common-protos-2.41.0.jar",
+      "sha256": "49edeba62f334053b91aa9455c95e38449269891b920dbc36daa74e959a3d89a",
+      "bytes": 2648945
+    },
+    {
+      "name": "jsr305-3.0.2.jar",
+      "url": "https://repo.maven.apache.org/maven2/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar",
+      "sha256": "766ad2a0783f2687962c8ad74ceecc38a28b9f72a2d085ee438b7813e928d0c7",
+      "bytes": 19936
+    },
+    {
+      "name": "gson-2.11.0.jar",
+      "url": "https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.11.0/gson-2.11.0.jar",
+      "sha256": "57928d6e5a6edeb2abd3770a8f95ba44dce45f3b23b7a9dc2b309c581552a78b",
+      "bytes": 298435
+    },
+    {
+      "name": "error_prone_annotations-2.28.0.jar",
+      "url": "https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_annotations/2.28.0/error_prone_annotations-2.28.0.jar",
+      "sha256": "f3fc8a3a0a4020706a373b00e7f57c2512dd26d1f83d28c7d38768f8682b231e",
+      "bytes": 19370
+    },
+    {
+      "name": "failureaccess-1.0.2.jar",
+      "url": "https://repo.maven.apache.org/maven2/com/google/guava/failureaccess/1.0.2/failureaccess-1.0.2.jar",
+      "sha256": "8a8f81cf9b359e3f6dfa691a1e776985c061ef2f223c9b2c80753e1b458e8064",
+      "bytes": 4740
+    },
+    {
+      "name": "guava-33.3.1-jre.jar",
+      "url": "https://repo.maven.apache.org/maven2/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar",
+      "sha256": "4bf0e2c5af8e4525c96e8fde17a4f7307f97f8478f11c4c8e35a0e3298ae4e90",
+      "bytes": 3079289
+    },
+    {
+      "name": "listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar",
+      "url": "https://repo.maven.apache.org/maven2/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar",
+      "sha256": "b372a037d4230aa57fbeffdef30fd6123f9c0c2db85d0aced00c91b974f33f99",
+      "bytes": 2199
+    },
+    {
+      "name": "j2objc-annotations-3.0.0.jar",
+      "url": "https://repo.maven.apache.org/maven2/com/google/j2objc/j2objc-annotations/3.0.0/j2objc-annotations-3.0.0.jar",
+      "sha256": "88241573467ddca44ffd4d74aa04c2bbfd11bf7c17e0c342c94c9de7a70a7c64",
+      "bytes": 12467
+    },
+    {
+      "name": "protobuf-java-3.25.5.jar",
+      "url": "https://repo.maven.apache.org/maven2/com/google/protobuf/protobuf-java/3.25.5/protobuf-java-3.25.5.jar",
+      "sha256": "8540247fad9e06baefa8fb45eb313802d019f485f14300e0f9d6b556ed88e753",
+      "bytes": 1875414
+    },
+    {
+      "name": "aho-corasick-double-array-trie-1.2.2.jar",
+      "url": "https://repo.maven.apache.org/maven2/com/hankcs/aho-corasick-double-array-trie/1.2.2/aho-corasick-double-array-trie-1.2.2.jar",
+      "sha256": "cbc79badb1e3d18dd18fdb77850da17d4566371c955e5ae85654b770c6e17858",
+      "bytes": 16929
+    },
+    {
+      "name": "annotations-12.0.jar",
+      "url": "https://repo.maven.apache.org/maven2/com/intellij/annotations/12.0/annotations-12.0.jar",
+      "sha256": "f8ab13b14be080fe2f617f90e55599760e4a1b4deeea5c595df63d0d6375ed6d",
+      "bytes": 20195
+    },
+    {
+      "name": "language-detector-0.6.jar",
+      "url": "https://repo.maven.apache.org/maven2/com/optimaize/languagedetector/language-detector/0.6/language-detector-0.6.jar",
+      "sha256": "f53ecc3d71da9ebc82edd10fb35638d32e8b9d849273dd717a021eca02f2278d",
+      "bytes": 1879128
+    },
+    {
+      "name": "jakarta.activation-1.2.2.jar",
+      "url": "https://repo.maven.apache.org/maven2/com/sun/activation/jakarta.activation/1.2.2/jakarta.activation-1.2.2.jar",
+      "sha256": "02156773e4ae9d048d14a56ad35d644bee9f1052a791d072df3ded3c656e6e1a",
+      "bytes": 68453
+    },
+    {
+      "name": "istack-commons-runtime-4.1.2.jar",
+      "url": "https://repo.maven.apache.org/maven2/com/sun/istack/istack-commons-runtime/4.1.2/istack-commons-runtime-4.1.2.jar",
+      "sha256": "7fd6792361f4dd00f8c56af4a20cecc0066deea4a8f3dec38348af23fc2296ee",
+      "bytes": 25788
+    },
+    {
+      "name": "jaxb-core-2.3.0.1.jar",
+      "url": "https://repo.maven.apache.org/maven2/com/sun/xml/bind/jaxb-core/2.3.0.1/jaxb-core-2.3.0.1.jar",
+      "sha256": "d2ecba63615f317a11fb55c6468f6a9480f6411c10951d9881bafd9a9a8d0467",
+      "bytes": 254858
+    },
+    {
+      "name": "jaxb-impl-2.3.3.jar",
+      "url": "https://repo.maven.apache.org/maven2/com/sun/xml/bind/jaxb-impl/2.3.3/jaxb-impl-2.3.3.jar",
+      "sha256": "e5178d0c7948247f75a13c689bf36f4d5d4910a121f712aa3b20ae94377069d8",
+      "bytes": 1133924
+    },
+    {
+      "name": "commons-cli-1.9.0.jar",
+      "url": "https://repo.maven.apache.org/maven2/commons-cli/commons-cli/1.9.0/commons-cli-1.9.0.jar",
+      "sha256": "d3d530d0f28fd0fbbffe2b0b338f70e8cb96f1605579e2e3abd4db29cac24e69",
+      "bytes": 75479
+    },
+    {
+      "name": "commons-codec-1.17.1.jar",
+      "url": "https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.17.1/commons-codec-1.17.1.jar",
+      "sha256": "f9f6cb103f2ddc3c99a9d80ada2ae7bf0685111fd6bffccb72033d1da4e6ff23",
+      "bytes": 372687
+    },
+    {
+      "name": "commons-digester-2.1.jar",
+      "url": "https://repo.maven.apache.org/maven2/commons-digester/commons-digester/2.1/commons-digester-2.1.jar",
+      "sha256": "e0b2b980a84fc6533c5ce291f1917b32c507f62bcad64198fff44368c2196a3d",
+      "bytes": 196768
+    },
+    {
+      "name": "commons-logging-1.3.4.jar",
+      "url": "https://repo.maven.apache.org/maven2/commons-logging/commons-logging/1.3.4/commons-logging-1.3.4.jar",
+      "sha256": "bc2dfe32f1ef06509e6a065144c1adf7b420eabf11a87f30bd127f8faa332016",
+      "bytes": 73721
+    },
+    {
+      "name": "commons-validator-1.9.0.jar",
+      "url": "https://repo.maven.apache.org/maven2/commons-validator/commons-validator/1.9.0/commons-validator-1.9.0.jar",
+      "sha256": "c3c14748e2d78db58df88808740711bd643b32c45ffa7b8a739f00fb467cd7d7",
+      "bytes": 201424
+    },
+    {
+      "name": "opennlp-chunk-models-1.5.jar",
+      "url": "https://repo.maven.apache.org/maven2/edu/washington/cs/knowitall/opennlp-chunk-models/1.5/opennlp-chunk-models-1.5.jar",
+      "sha256": "e7090de37093d2b91a0136f9e1e9cf60567bc27f72781cfdd083d86e342d7cb0",
+      "bytes": 2563111
+    },
+    {
+      "name": "opennlp-postag-models-1.5.jar",
+      "url": "https://repo.maven.apache.org/maven2/edu/washington/cs/knowitall/opennlp-postag-models/1.5/opennlp-postag-models-1.5.jar",
+      "sha256": "4d58462b891dbe478a8a68c8a93749af5bedd874af1974596a72f5667fffc8c9",
+      "bytes": 5699943
+    },
+    {
+      "name": "opennlp-tokenize-models-1.5.jar",
+      "url": "https://repo.maven.apache.org/maven2/edu/washington/cs/knowitall/opennlp-tokenize-models/1.5/opennlp-tokenize-models-1.5.jar",
+      "sha256": "1c10141d547b9ae1de1238d5a9ec69db043289cd6f8caf0d7d2f14bbfcda9502",
+      "bytes": 442008
+    },
+    {
+      "name": "openregex-1.1.1.jar",
+      "url": "https://repo.maven.apache.org/maven2/edu/washington/cs/knowitall/openregex/1.1.1/openregex-1.1.1.jar",
+      "sha256": "33021c9cca70c6292d53ff7dac5d1832d422e986aba52ec998532a5f47f921f8",
+      "bytes": 74839
+    },
+    {
+      "name": "java-diff-utils-4.12.jar",
+      "url": "https://repo.maven.apache.org/maven2/io/github/java-diff-utils/java-diff-utils/4.12/java-diff-utils-4.12.jar",
+      "sha256": "9990a2039778f6b4cc94790141c2868864eacee0620c6c459451121a901cd5b5",
+      "bytes": 72305
+    },
+    {
+      "name": "resilience4j-circuitbreaker-1.7.1.jar",
+      "url": "https://repo.maven.apache.org/maven2/io/github/resilience4j/resilience4j-circuitbreaker/1.7.1/resilience4j-circuitbreaker-1.7.1.jar",
+      "sha256": "05ae08b684e6245b8d88bcb823dfd0a2994052098226bd1e614fb9828e5d13df",
+      "bytes": 76387
+    },
+    {
+      "name": "resilience4j-core-1.7.1.jar",
+      "url": "https://repo.maven.apache.org/maven2/io/github/resilience4j/resilience4j-core/1.7.1/resilience4j-core-1.7.1.jar",
+      "sha256": "3153a2c96c3e3b31122a7fa8ca8ea1ab0f305bf82d096c291b7416443fff6491",
+      "bytes": 65716
+    },
+    {
+      "name": "resilience4j-micrometer-1.7.1.jar",
+      "url": "https://repo.maven.apache.org/maven2/io/github/resilience4j/resilience4j-micrometer/1.7.1/resilience4j-micrometer-1.7.1.jar",
+      "sha256": "71d9be0d10026f2223f2afba5b10d5d1a7b569c6433bbc1fd189ca8817d66d60",
+      "bytes": 52784
+    },
+    {
+      "name": "grpc-api-1.68.0.jar",
+      "url": "https://repo.maven.apache.org/maven2/io/grpc/grpc-api/1.68.0/grpc-api-1.68.0.jar",
+      "sha256": "b5120a11da5ce5ddfab019bbb69f5868529c9b5def1ba5b283251cc95fb3ba91",
+      "bytes": 316053
+    },
+    {
+      "name": "grpc-context-1.68.0.jar",
+      "url": "https://repo.maven.apache.org/maven2/io/grpc/grpc-context/1.68.0/grpc-context-1.68.0.jar",
+      "sha256": "45f85a394466f963f1f7a5c5555e6dda35efd05ce1c687203a217d7048f6f089",
+      "bytes": 293
+    },
+    {
+      "name": "grpc-core-1.68.0.jar",
+      "url": "https://repo.maven.apache.org/maven2/io/grpc/grpc-core/1.68.0/grpc-core-1.68.0.jar",
+      "sha256": "a8dd684c322ba8a86a95b2653fa4106c918a56edd863e45aaf63839d6a6ea082",
+      "bytes": 641237
+    },
+    {
+      "name": "grpc-netty-shaded-1.68.0.jar",
+      "url": "https://repo.maven.apache.org/maven2/io/grpc/grpc-netty-shaded/1.68.0/grpc-netty-shaded-1.68.0.jar",
+      "sha256": "de6fd10fef856dbb83ecbd0baee5313a274bb8202adca01091161024e25fd1dc",
+      "bytes": 9798647
+    },
+    {
+      "name": "grpc-protobuf-1.68.0.jar",
+      "url": "https://repo.maven.apache.org/maven2/io/grpc/grpc-protobuf/1.68.0/grpc-protobuf-1.68.0.jar",
+      "sha256": "79704cf169ee27151fce4375a4d91fe828d276d921eef5a7f497d020b0a5d345",
+      "bytes": 5291
+    },
+    {
+      "name": "grpc-protobuf-lite-1.68.0.jar",
+      "url": "https://repo.maven.apache.org/maven2/io/grpc/grpc-protobuf-lite/1.68.0/grpc-protobuf-lite-1.68.0.jar",
+      "sha256": "60e92e148b4f86c06885afa79a86beb74bffcdcba47f8b65dc7010ba6701fa80",
+      "bytes": 7853
+    },
+    {
+      "name": "grpc-stub-1.68.0.jar",
+      "url": "https://repo.maven.apache.org/maven2/io/grpc/grpc-stub/1.68.0/grpc-stub-1.68.0.jar",
+      "sha256": "7c4090509cd6ea0432305f9397da21127b691905bdcf163a306bedb1c6f4ead7",
+      "bytes": 52397
+    },
+    {
+      "name": "grpc-util-1.68.0.jar",
+      "url": "https://repo.maven.apache.org/maven2/io/grpc/grpc-util/1.68.0/grpc-util-1.68.0.jar",
+      "sha256": "a97484519d75a6f530b95eab7723318752b2c5febca11fc9141dd78bd09e7eda",
+      "bytes": 101514
+    },
+    {
+      "name": "lettuce-core-6.5.4.RELEASE.jar",
+      "url": "https://repo.maven.apache.org/maven2/io/lettuce/lettuce-core/6.5.4.RELEASE/lettuce-core-6.5.4.RELEASE.jar",
+      "sha256": "e82f82a5f824e4165f90a6a6d8259282f90e218c38512c851e83b58e4cad05a2",
+      "bytes": 2061815
+    },
+    {
+      "name": "micrometer-core-1.7.12.jar",
+      "url": "https://repo.maven.apache.org/maven2/io/micrometer/micrometer-core/1.7.12/micrometer-core-1.7.12.jar",
+      "sha256": "e7137f16fdbb183bf6608403f604036fa53971ca8635947745e8080039ab0533",
+      "bytes": 638374
+    },
+    {
+      "name": "micrometer-registry-prometheus-1.7.12.jar",
+      "url": "https://repo.maven.apache.org/maven2/io/micrometer/micrometer-registry-prometheus/1.7.12/micrometer-registry-prometheus-1.7.12.jar",
+      "sha256": "1fd64ca17b7ec6235dae4bb080283dcd7866e929189d82f5ba8a201e41ca9848",
+      "bytes": 37100
+    },
+    {
+      "name": "netty-buffer-4.1.118.Final.jar",
+      "url": "https://repo.maven.apache.org/maven2/io/netty/netty-buffer/4.1.118.Final/netty-buffer-4.1.118.Final.jar",
+      "sha256": "0eea4e8666a9636a28722661d8ba5fa8564477e75fec6dd2ff3e324e361f8b3c",
+      "bytes": 339045
+    },
+    {
+      "name": "netty-codec-4.1.118.Final.jar",
+      "url": "https://repo.maven.apache.org/maven2/io/netty/netty-codec/4.1.118.Final/netty-codec-4.1.118.Final.jar",
+      "sha256": "4abd215fd1ed7ce86509d169cc9cbede5042176c265a79b3b70602b017226c3f",
+      "bytes": 355199
+    },
+    {
+      "name": "netty-common-4.1.118.Final.jar",
+      "url": "https://repo.maven.apache.org/maven2/io/netty/netty-common/4.1.118.Final/netty-common-4.1.118.Final.jar",
+      "sha256": "65cce901ecf0f9d6591cc7750772614ab401a84415dc9aec9da4d046f0f9a77c",
+      "bytes": 719225
+    },
+    {
+      "name": "netty-handler-4.1.118.Final.jar",
+      "url": "https://repo.maven.apache.org/maven2/io/netty/netty-handler/4.1.118.Final/netty-handler-4.1.118.Final.jar",
+      "sha256": "26e3f8a5e859fd62cf3c13dc6d75e4e18879f000a5d0ad7f58f8679675d23dae",
+      "bytes": 580162
+    },
+    {
+      "name": "netty-resolver-4.1.118.Final.jar",
+      "url": "https://repo.maven.apache.org/maven2/io/netty/netty-resolver/4.1.118.Final/netty-resolver-4.1.118.Final.jar",
+      "sha256": "3170c225972c18b6850d28add60db15bb28d83c4e3d5b686ca220e0bd7273c8a",
+      "bytes": 37842
+    },
+    {
+      "name": "netty-transport-4.1.118.Final.jar",
+      "url": "https://repo.maven.apache.org/maven2/io/netty/netty-transport/4.1.118.Final/netty-transport-4.1.118.Final.jar",
+      "sha256": "ab3751e717daef9c8d91e4d74728a48730bd8530b72e2466b222b2ea3fb07db9",
+      "bytes": 521428
+    },
+    {
+      "name": "netty-transport-native-unix-common-4.1.118.Final.jar",
+      "url": "https://repo.maven.apache.org/maven2/io/netty/netty-transport-native-unix-common/4.1.118.Final/netty-transport-native-unix-common-4.1.118.Final.jar",
+      "sha256": "69b16793d7b41ea76a762bd2bd144fc4f7c39c156a7a59ebf69baeb560fb10b7",
+      "bytes": 44157
+    },
+    {
+      "name": "opentelemetry-api-1.42.1.jar",
+      "url": "https://repo.maven.apache.org/maven2/io/opentelemetry/opentelemetry-api/1.42.1/opentelemetry-api-1.42.1.jar",
+      "sha256": "6b0f9d067260ea3ed6c3960352b80800b993cb3962fa6fb1b6383cd04c3c0874",
+      "bytes": 157347
+    },
+    {
+      "name": "opentelemetry-context-1.42.1.jar",
+      "url": "https://repo.maven.apache.org/maven2/io/opentelemetry/opentelemetry-context/1.42.1/opentelemetry-context-1.42.1.jar",
+      "sha256": "fc8f47bc94bec89a3dbdbcf631470fb7fd7d3e628b10d43bc376f17ebde4b405",
+      "bytes": 47253
+    },
+    {
+      "name": "opentelemetry-semconv-1.30.1-alpha.jar",
+      "url": "https://repo.maven.apache.org/maven2/io/opentelemetry/opentelemetry-semconv/1.30.1-alpha/opentelemetry-semconv-1.30.1-alpha.jar",
+      "sha256": "aaa73f6c6a3a67cdc07870387383808826d8dae7a84e47cae182b7a88a08e513",
+      "bytes": 39675
+    },
+    {
+      "name": "perfmark-api-0.27.0.jar",
+      "url": "https://repo.maven.apache.org/maven2/io/perfmark/perfmark-api/0.27.0/perfmark-api-0.27.0.jar",
+      "sha256": "c7b478503ec524e55df19b424d46d27c8a68aeb801664fadd4f069b71f52d0f6",
+      "bytes": 6954
+    },
+    {
+      "name": "reactor-core-3.6.6.jar",
+      "url": "https://repo.maven.apache.org/maven2/io/projectreactor/reactor-core/3.6.6/reactor-core-3.6.6.jar",
+      "sha256": "44f055fbd033b6c976c53fb2e04b59027e79fb2312c37d2eaa54c77ea1ea80fe",
+      "bytes": 1873494
+    },
+    {
+      "name": "simpleclient-0.16.0.jar",
+      "url": "https://repo.maven.apache.org/maven2/io/prometheus/simpleclient/0.16.0/simpleclient-0.16.0.jar",
+      "sha256": "22c374f237f7bc4fdb1f0ec2da379c0ba00e69ad2ffe8b6ade543d73062d377f",
+      "bytes": 90482
+    },
+    {
+      "name": "simpleclient_common-0.16.0.jar",
+      "url": "https://repo.maven.apache.org/maven2/io/prometheus/simpleclient_common/0.16.0/simpleclient_common-0.16.0.jar",
+      "sha256": "eba6ec26ce7e40cbb8725e05fb83247a9f4f44945b9e7522e3375dde67b9f059",
+      "bytes": 8011
+    },
+    {
+      "name": "simpleclient_guava-0.16.0.jar",
+      "url": "https://repo.maven.apache.org/maven2/io/prometheus/simpleclient_guava/0.16.0/simpleclient_guava-0.16.0.jar",
+      "sha256": "49959fe20423803b8958fe35ce6cdcc47e58e2251b191ad53eb7ef6fc46c4ae1",
+      "bytes": 5267
+    },
+    {
+      "name": "simpleclient_hotspot-0.16.0.jar",
+      "url": "https://repo.maven.apache.org/maven2/io/prometheus/simpleclient_hotspot/0.16.0/simpleclient_hotspot-0.16.0.jar",
+      "sha256": "134f156cfeb44cbd3864065806ef5db5543c68af578d1d7ee59283e2e9853f73",
+      "bytes": 24768
+    },
+    {
+      "name": "simpleclient_httpserver-0.16.0.jar",
+      "url": "https://repo.maven.apache.org/maven2/io/prometheus/simpleclient_httpserver/0.16.0/simpleclient_httpserver-0.16.0.jar",
+      "sha256": "cab87de10b6a474151cceebc3b634329a973ffb602ce6efef2c0fd97a90365c8",
+      "bytes": 14688
+    },
+    {
+      "name": "simpleclient_tracer_common-0.16.0.jar",
+      "url": "https://repo.maven.apache.org/maven2/io/prometheus/simpleclient_tracer_common/0.16.0/simpleclient_tracer_common-0.16.0.jar",
+      "sha256": "e84a784ac8e24f182ee62da80b6b5c8140774b75bfa4bf9cc3d3b8390db625f6",
+      "bytes": 3405
+    },
+    {
+      "name": "simpleclient_tracer_otel-0.16.0.jar",
+      "url": "https://repo.maven.apache.org/maven2/io/prometheus/simpleclient_tracer_otel/0.16.0/simpleclient_tracer_otel-0.16.0.jar",
+      "sha256": "a2a84c59bef3796bb7f9c6f2ae8b7de8b905313ef28180ac3de7ff61dd68df3f",
+      "bytes": 4338
+    },
+    {
+      "name": "simpleclient_tracer_otel_agent-0.16.0.jar",
+      "url": "https://repo.maven.apache.org/maven2/io/prometheus/simpleclient_tracer_otel_agent/0.16.0/simpleclient_tracer_otel_agent-0.16.0.jar",
+      "sha256": "7ad2bb40df74a772d9f5445a3d03579b49d6b37a47d5e90f6cf3f59ecf41ad06",
+      "bytes": 4611
+    },
+    {
+      "name": "vavr-0.10.2.jar",
+      "url": "https://repo.maven.apache.org/maven2/io/vavr/vavr/0.10.2/vavr-0.10.2.jar",
+      "sha256": "1b2ae46cf352627e05b39ac1f1d3bda7b285a8f643cdc7472aea4aa279492e54",
+      "bytes": 897876
+    },
+    {
+      "name": "vavr-match-0.10.2.jar",
+      "url": "https://repo.maven.apache.org/maven2/io/vavr/vavr-match/0.10.2/vavr-match-0.10.2.jar",
+      "sha256": "5d7a9515b05e3291194e04e641acf74a9a544c1caa1e2c24f59a1424c6ec8288",
+      "bytes": 3039
+    },
+    {
+      "name": "fastutil-core-8.5.14.jar",
+      "url": "https://repo.maven.apache.org/maven2/it/unimi/dsi/fastutil-core/8.5.14/fastutil-core-8.5.14.jar",
+      "sha256": "8fb6fe5989a32a74df3158fd8d6b91a4dfc44348772a8654c47dcadd1090a4d8",
+      "bytes": 6633624
+    },
+    {
+      "name": "jakarta.activation-api-2.1.3.jar",
+      "url": "https://repo.maven.apache.org/maven2/jakarta/activation/jakarta.activation-api/2.1.3/jakarta.activation-api-2.1.3.jar",
+      "sha256": "01b176d718a169263e78290691fc479977186bcc6b333487325084d6586f4627",
+      "bytes": 66514
+    },
+    {
+      "name": "jakarta.xml.bind-api-2.3.3.jar",
+      "url": "https://repo.maven.apache.org/maven2/jakarta/xml/bind/jakarta.xml.bind-api/2.3.3/jakarta.xml.bind-api-2.3.3.jar",
+      "sha256": "c04539f472e9a6dd0c7685ea82d677282269ab8e7baca2e14500e381e0c6cec5",
+      "bytes": 115638
+    },
+    {
+      "name": "javax.activation-api-1.2.0.jar",
+      "url": "https://repo.maven.apache.org/maven2/javax/activation/javax.activation-api/1.2.0/javax.activation-api-1.2.0.jar",
+      "sha256": "43fdef0b5b6ceb31b0424b208b930c74ab58fac2ceeb7b3f6fd3aeb8b5ca4393",
+      "bytes": 56674
+    },
+    {
+      "name": "javax.annotation-api-1.3.2.jar",
+      "url": "https://repo.maven.apache.org/maven2/javax/annotation/javax.annotation-api/1.3.2/javax.annotation-api-1.3.2.jar",
+      "sha256": "e04ba5195bcd555dc95650f7cc614d151e4bcd52d29a10b8aa2197f3ab89ab9b",
+      "bytes": 26586
+    },
+    {
+      "name": "unit-api-1.0.jar",
+      "url": "https://repo.maven.apache.org/maven2/javax/measure/unit-api/1.0/unit-api-1.0.jar",
+      "sha256": "35da65fdbd3f9c1fe79cfc8399db975fd97660d8a219febfda9fd1a5fc058f10",
+      "bytes": 27785
+    },
+    {
+      "name": "jaxb-api-2.3.1.jar",
+      "url": "https://repo.maven.apache.org/maven2/javax/xml/bind/jaxb-api/2.3.1/jaxb-api-2.3.1.jar",
+      "sha256": "88b955a0df57880a26a74708bc34f74dcaf8ebf4e78843a28b50eae945732b06",
+      "bytes": 128076
+    },
+    {
+      "name": "jsonic-1.2.11.jar",
+      "url": "https://repo.maven.apache.org/maven2/net/arnx/jsonic/1.2.11/jsonic-1.2.11.jar",
+      "sha256": "76a787944faab6c9bea64dc78400949027ed6fb686fe9b328d18f949852bc89f",
+      "bytes": 161385
+    },
+    {
+      "name": "jna-5.13.0.jar",
+      "url": "https://repo.maven.apache.org/maven2/net/java/dev/jna/jna/5.13.0/jna-5.13.0.jar",
+      "sha256": "66d4f819a062a51a1d5627bffc23fac55d1677f0e0a1feba144aabdd670a64bb",
+      "bytes": 1879325
+    },
+    {
+      "name": "jna-platform-5.12.1.jar",
+      "url": "https://repo.maven.apache.org/maven2/net/java/dev/jna/jna-platform/5.12.1/jna-platform-5.12.1.jar",
+      "sha256": "8ce969116cac95bd61b07a8d5e07174b352e63301473caac72c395e3c08488d2",
+      "bytes": 1356627
+    },
+    {
+      "name": "segment-2.0.3.jar",
+      "url": "https://repo.maven.apache.org/maven2/net/loomchild/segment/2.0.3/segment-2.0.3.jar",
+      "sha256": "a134be9884ddfa18304c8e437e64aa598d83ccfa439310029e61ea3fdae8b2ce",
+      "bytes": 80874
+    },
+    {
+      "name": "commons-lang3-3.17.0.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.17.0/commons-lang3-3.17.0.jar",
+      "sha256": "6ee731df5c8e5a2976a1ca023b6bb320ea8d3539fbe64c8a1d5cb765127c33b4",
+      "bytes": 673587
+    },
+    {
+      "name": "commons-pool2-2.12.0.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/apache/commons/commons-pool2/2.12.0/commons-pool2-2.12.0.jar",
+      "sha256": "6d3bd18df8410f3e31b031aca582cc109342358a62a2759ebd0c4cdf30d06f8b",
+      "bytes": 150048
+    },
+    {
+      "name": "commons-text-1.12.0.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/apache/commons/commons-text/1.12.0/commons-text-1.12.0.jar",
+      "sha256": "de023257ff166044a56bd1aa9124e843cd05dac5806cc705a9311f3556d5a15f",
+      "bytes": 251227
+    },
+    {
+      "name": "lucene-backward-codecs-5.5.5.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/apache/lucene/lucene-backward-codecs/5.5.5/lucene-backward-codecs-5.5.5.jar",
+      "sha256": "b62e089f505bc72dd8abb0ad55040604cdd92306e14871d7febcbf947dd9c6e5",
+      "bytes": 430600
+    },
+    {
+      "name": "lucene-core-5.5.5.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/apache/lucene/lucene-core/5.5.5/lucene-core-5.5.5.jar",
+      "sha256": "8d27a8ab4ee8883282d7713f067e72d1cfde1e88d0f5701a119100ec9e86d7e1",
+      "bytes": 2370237
+    },
+    {
+      "name": "opennlp-tools-1.9.4.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/apache/opennlp/opennlp-tools/1.9.4/opennlp-tools-1.9.4.jar",
+      "sha256": "0dfb53f81c8dbb9171338be3744c799b82413649fc0e39d1db928ccc0932098a",
+      "bytes": 1298672
+    },
+    {
+      "name": "morfologik-fsa-2.1.9.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/carrot2/morfologik-fsa/2.1.9/morfologik-fsa-2.1.9.jar",
+      "sha256": "1bfefce937df14cc94d32a98ce59c33f4d5b6c0eddbb436b6bfe27ff2120a23d",
+      "bytes": 18720
+    },
+    {
+      "name": "morfologik-fsa-builders-2.1.9.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/carrot2/morfologik-fsa-builders/2.1.9/morfologik-fsa-builders-2.1.9.jar",
+      "sha256": "f418c519b49470c2ec7024086bf210ba370ff158732368005d3b8cef964d3fff",
+      "bytes": 30670
+    },
+    {
+      "name": "morfologik-speller-2.1.9.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/carrot2/morfologik-speller/2.1.9/morfologik-speller-2.1.9.jar",
+      "sha256": "8d2566a216f401380878f25196f84bd351b807b11f18bc71acd1417e04a1ec29",
+      "bytes": 13413
+    },
+    {
+      "name": "morfologik-stemming-2.1.9.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/carrot2/morfologik-stemming/2.1.9/morfologik-stemming-2.1.9.jar",
+      "sha256": "6170895b2315b697f4da5630caf57c6c441f1cb419d89d1cb5326b0673293e8a",
+      "bytes": 52175
+    },
+    {
+      "name": "checker-qual-3.43.0.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/checkerframework/checker-qual/3.43.0/checker-qual-3.43.0.jar",
+      "sha256": "3fbc2e98f05854c3df16df9abaa955b91b15b3ecac33623208ed6424640ef0f6",
+      "bytes": 231525
+    },
+    {
+      "name": "angus-activation-2.0.2.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/eclipse/angus/angus-activation/2.0.2/angus-activation-2.0.2.jar",
+      "sha256": "6dd3bcffc22bce83b07376a0e2e094e4964a3195d4118fb43e380ef35436cc1e",
+      "bytes": 27050
+    },
+    {
+      "name": "jaxb-core-4.0.5.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/glassfish/jaxb/jaxb-core/4.0.5/jaxb-core-4.0.5.jar",
+      "sha256": "ad3fd9bf00de3eda9859f70b6cfb011e2fe9904804e16a2665092888ece0fdca",
+      "bytes": 138682
+    },
+    {
+      "name": "jaxb-runtime-4.0.5.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/glassfish/jaxb/jaxb-runtime/4.0.5/jaxb-runtime-4.0.5.jar",
+      "sha256": "485d8940e76373a7f300815ea5504bf5b726c234425ad30971019d133124cca4",
+      "bytes": 920213
+    },
+    {
+      "name": "txw2-4.0.5.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/glassfish/jaxb/txw2/4.0.5/txw2-4.0.5.jar",
+      "sha256": "917355bc451481f30d043b24d123110517966af34383901773882810dca480e5",
+      "bytes": 73266
+    },
+    {
+      "name": "HdrHistogram-2.1.12.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/hdrhistogram/HdrHistogram/2.1.12/HdrHistogram-2.1.12.jar",
+      "sha256": "9b47fbae444feaac4b7e04f0ea294569e4bc282bc69d8c2ce2ac3f23577281e2",
+      "bytes": 173763
+    },
+    {
+      "name": "json-20240303.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/json/json/20240303/json-20240303.jar",
+      "sha256": "3cf6cd6892e32e2b4c1c39e0f52f5248a2f5b37646fdfbb79a66b46b618414ed",
+      "bytes": 78332
+    },
+    {
+      "name": "english-pos-dict-0.6.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/languagetool/english-pos-dict/0.6/english-pos-dict-0.6.jar",
+      "sha256": "2a3e96b49854e5275f8eb7a1bb5b3b85b82f687fed272f3043882ccc0b1634b1",
+      "bytes": 4650617
+    },
+    {
+      "name": "language-ca-6.6.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/languagetool/language-ca/6.6/language-ca-6.6.jar",
+      "sha256": "cbb65761c1a884fefb798db45cf37f961667706c88e7a2964353d7cd6f8135cd",
+      "bytes": 1654242
+    },
+    {
+      "name": "language-en-6.6.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/languagetool/language-en/6.6/language-en-6.6.jar",
+      "sha256": "3b21ae7b18133dc53c5aefbd97130155bce2bcbed43b8b02cf27813587cca96b",
+      "bytes": 2860736
+    },
+    {
+      "name": "language-es-6.6.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/languagetool/language-es/6.6/language-es-6.6.jar",
+      "sha256": "28b2207672bcdd8fe8d2c1d42cad647fbd3105845fae46666f6deb33c6754eef",
+      "bytes": 674027
+    },
+    {
+      "name": "language-pt-6.6.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/languagetool/language-pt/6.6/language-pt-6.6.jar",
+      "sha256": "08261debee04d46ae9476705001554190c538f007b6d220efaa69c7f3c13b11b",
+      "bytes": 1983973
+    },
+    {
+      "name": "languagetool-core-6.6.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/languagetool/languagetool-core/6.6/languagetool-core-6.6.jar",
+      "sha256": "e35e1eb66c5f12cba43dd56edae1f532da07a7723509d10ce78a8f2a152ee569",
+      "bytes": 1894734
+    },
+    {
+      "name": "languagetool-gui-commons-6.6.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/languagetool/languagetool-gui-commons/6.6/languagetool-gui-commons-6.6.jar",
+      "sha256": "43251ad079ca47bc7e0784682946f2a433397b488acbd2c62a9c36330e9a04af",
+      "bytes": 87631
+    },
+    {
+      "name": "languagetool-server-6.6.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/languagetool/languagetool-server/6.6/languagetool-server-6.6.jar",
+      "sha256": "9f2661259896b3145b1580e824ec0ed54275931e53ce0c355dbd7b8a96da88b6",
+      "bytes": 202789
+    },
+    {
+      "name": "portuguese-pos-dict-1.2.0.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/languagetool/portuguese-pos-dict/1.2.0/portuguese-pos-dict-1.2.0.jar",
+      "sha256": "fe8da88bb31b6372855741fbd81ee1c7477b4f8a0624d3dafd20ee23e184650e",
+      "bytes": 4351056
+    },
+    {
+      "name": "LatencyUtils-2.0.3.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/latencyutils/LatencyUtils/2.0.3/LatencyUtils-2.0.3.jar",
+      "sha256": "a32a9ffa06b2f4e01c5360f8f9df7bc5d9454a5d373cd8f361347fa5a57165ec",
+      "bytes": 29779
+    },
+    {
+      "name": "mariadb-java-client-3.4.1.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/mariadb/jdbc/mariadb-java-client/3.4.1/mariadb-java-client-3.4.1.jar",
+      "sha256": "f60e4b282f1f4bdb74f0a26436ba7078a5e480b6f6702f6a7b45d9ba5e604a24",
+      "bytes": 698716
+    },
+    {
+      "name": "mybatis-3.5.16.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/mybatis/mybatis/3.5.16/mybatis-3.5.16.jar",
+      "sha256": "1814d02fccd8dbeadf628cbac8962b1edaab9bfa67e8585c6a3663c48bd8953d",
+      "bytes": 1818073
+    },
+    {
+      "name": "reactive-streams-1.0.4.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/reactivestreams/reactive-streams/1.0.4/reactive-streams-1.0.4.jar",
+      "sha256": "f75ca597789b3dac58f61857b9ac2e1034a68fa672db35055a8fb4509e325f28",
+      "bytes": 11640
+    },
+    {
+      "name": "jcl-over-slf4j-2.0.7.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/slf4j/jcl-over-slf4j/2.0.7/jcl-over-slf4j-2.0.7.jar",
+      "sha256": "41806757e1d26dae5d6db2ca7d4a5176eed2d6e709cd86564d4a11dab0601742",
+      "bytes": 21143
+    },
+    {
+      "name": "slf4j-api-2.0.16.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/slf4j/slf4j-api/2.0.16/slf4j-api-2.0.16.jar",
+      "sha256": "a12578dde1ba00bd9b816d388a0b879928d00bab3c83c240f7013bf4196c579a",
+      "bytes": 69435
+    },
+    {
+      "name": "catalan-pos-dict-2.26.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/softcatala/catalan-pos-dict/2.26/catalan-pos-dict-2.26.jar",
+      "sha256": "74c302fbebd3ed41e034688aad1398fb6e839af4b84492a03b7df2c8dbc4b9a6",
+      "bytes": 5880402
+    },
+    {
+      "name": "spanish-pos-dict-2.3.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/softcatala/spanish-pos-dict/2.3/spanish-pos-dict-2.3.jar",
+      "sha256": "9612455391276b0351fcb638f7a40def4590f6bb6592e06f748d2cbe4e161d54",
+      "bytes": 2906275
+    },
+    {
+      "name": "indriya-1.3.jar",
+      "url": "https://repo.maven.apache.org/maven2/tech/units/indriya/1.3/indriya-1.3.jar",
+      "sha256": "7cbaa6f42e2c8412ef13cd0fb7f81936d64a1c3ea7c4f69cf75bb4e9410cb76b",
+      "bytes": 251659
+    },
+    {
+      "name": "uom-lib-common-1.1.jar",
+      "url": "https://repo.maven.apache.org/maven2/tech/uom/lib/uom-lib-common/1.1/uom-lib-common-1.1.jar",
+      "sha256": "4add5fbcb7f548b79230ed7e01cb9fd4f9e2524bd1598dbcbfd8150563fe27f7",
+      "bytes": 15225
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Spellcheck Tool</title><link rel="icon" href="data:,"><link rel="stylesheet" href="/static/style.css"></head>
+<body>
+<header><a class="brand" href="/">✓ <span>Spellcheck <b>Tool</b></span></a><span class="privacy"><i></i> Local processing</span></header>
+<main>
+<section class="intro"><p class="eyebrow">FINNISH & ENGLISH</p><h1>A clearer second look.</h1><p>Find possible mistakes. Keep your words.<br>Download your document with subtle highlights and correction-only comments.</p></section>
+<div id="notice" role="alert" hidden></div>
+<div class="workspace">
+<aside>
+<form id="form">
+<label class="drop" id="drop" for="files"><span class="upload-icon">↥</span><strong>Choose documents</strong><span>or drop them here</span><small>PDF & DOCX · up to 30 MB each</small><input type="file" id="files" accept=".pdf,.docx" multiple required></label>
+<div id="file-list" class="muted"></div>
+<label for="language">Document language</label><select id="language"><option value="mixed">Finnish & English · detect by paragraph</option><option value="fi">Finnish</option><option value="en">English</option></select>
+<label for="english">English spelling</label><select id="english"><option value="en-GB">British English</option><option value="en-US">American English</option></select>
+<label for="mode">Review depth</label><select id="mode"><option value="thorough">Thorough · include possible issues</option><option value="standard">Standard · core checks</option></select>
+<details><summary>Dictionary & preferences</summary>
+<label for="glossary">Accepted words <small>One per line</small></label><textarea id="glossary" rows="4" placeholder="Company names, product names, acronyms"></textarea>
+<label for="terms">Preferred terminology <small>One old spelling = preferred spelling per line</small></label><textarea id="terms" rows="3" placeholder="e-mail = email"></textarea>
+<label class="check"><input type="checkbox" id="uppercase" checked> Ignore uppercase acronyms</label>
+<label class="check"><input type="checkbox" id="codes" checked> Ignore URLs, email addresses and codes</label>
+<div class="profile-actions"><button type="button" id="save-profile" class="secondary">Save profile</button><label class="button secondary" for="profile">Load profile<input id="profile" type="file" accept=".json" hidden></label></div>
+</details>
+<button id="run" type="submit" class="primary">Check documents <span>→</span></button>
+<div id="engine-status" class="muted engine-status">Checking engines…</div>
+</form>
+</aside>
+<section class="review-panel" aria-live="polite">
+<div id="empty"><div class="empty-mark">Aa</div><h2>Your document stays yours.</h2><p>We add highlights and comments to a copy.<br>No words are replaced. No account or credits required.</p><div class="example"><span>We will <mark>recieve</mark> the report.</span><div class="tooltip">receive</div></div><small>Comments contain only the proposed correction.</small></div>
+<div id="reviews" hidden><nav id="tabs" aria-label="Documents"></nav><div id="result"></div></div>
+</section>
+</div>
+<footer><span>Original wording preserved · No document uploads to external services</span><span>Spellcheck Tool 1.0</span></footer>
+</main><script src="/static/app.js"></script></body></html>
