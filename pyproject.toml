@@ -11,6 +11,7 @@ license = "MIT"
 dependencies = [
   "PyMuPDF==1.26.7", "lxml==6.0.2", "fastapi==0.119.0",
   "uvicorn==0.37.0", "python-multipart==0.0.20", "libvoikko==4.3",
+  "streamlit>=1.40,<2",
 ]
 
 [project.optional-dependencies]
@@ -23,7 +24,7 @@ spellcheck-tool = "spellcheck_tool.__main__:main"
 where = ["src"]
 
 [tool.setuptools.package-data]
-spellcheck_tool = ["static/*", "resources/*"]
+spellcheck_tool = ["static/*", "static/pdf_preview/*", "resources/*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

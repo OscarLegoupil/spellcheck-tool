@@ -1,0 +1,139 @@
+:root {
+  color-scheme: light;
+  font-family: "Segoe UI", sans-serif;
+  color: #243746;
+  background: transparent;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: transparent;
+}
+
+.viewer-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 44px;
+  padding: 4px 0 12px;
+}
+
+.toolbar-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.viewer-toolbar button {
+  min-width: 36px;
+  min-height: 34px;
+  padding: 6px 11px;
+  border: 1px solid #c7d1d8;
+  border-radius: 4px;
+  background: #fff;
+  color: #243746;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.viewer-toolbar button:hover:not(:disabled) {
+  border-color: #197c78;
+  background: #f1f8f7;
+}
+
+.viewer-toolbar button:disabled {
+  color: #89959d;
+  cursor: default;
+}
+
+.page-label {
+  min-width: 92px;
+  color: #506371;
+  font-size: 13px;
+  text-align: center;
+}
+
+.change-count {
+  color: #506371;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.page-shell {
+  position: relative;
+  width: min(100%, 940px);
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid #d5dde2;
+  background: #fff;
+  box-shadow: 0 3px 14px rgb(27 47 62 / 12%);
+}
+
+.page-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.finding-mark {
+  position: absolute;
+  z-index: 2;
+  min-width: 3px;
+  min-height: 5px;
+  padding: 0;
+  border: 1px solid rgb(213 144 0 / 88%);
+  border-radius: 2px;
+  background: rgb(255 200 54 / 22%);
+  cursor: pointer;
+  transition: background-color 120ms ease, border-color 120ms ease;
+}
+
+.finding-mark:hover {
+  border-color: #b36900;
+  background: rgb(255 193 38 / 42%);
+}
+
+.finding-mark[aria-pressed="true"] {
+  border-color: #087a65;
+  background: rgb(0 154 118 / 24%);
+}
+
+.finding-mark:focus-visible,
+.viewer-toolbar button:focus-visible {
+  outline: 3px solid #187b77;
+  outline-offset: 2px;
+}
+
+.finding-mark:disabled {
+  border-style: dashed;
+  background: rgb(130 139 146 / 15%);
+  cursor: not-allowed;
+}
+
+.viewer-note {
+  min-height: 20px;
+  margin: 8px 0 0;
+  color: #5c6c77;
+  font-size: 12px;
+}
+
+.updating {
+  color: #126b68;
+}
+
+@media (max-width: 520px) {
+  .viewer-toolbar {
+    flex-wrap: wrap;
+  }
+
+  .toolbar-group:last-child {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

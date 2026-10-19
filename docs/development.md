@@ -2,13 +2,13 @@
 
 The pipeline has four stages: extract text and source positions, run local language/rule checks, combine/filter findings, and annotate a copy. Analysis normalization never changes the source wording.
 
-`pdf.py` maps normalized characters to page/block/line bounding boxes. It creates standard PDF highlight annotations and checks extracted text after export. `word.py` reads the OOXML package directly, splits plain text runs at comment boundaries while copying run properties, and updates only the document/comment relationships and contents. Export validates wording preservation. The tests also check original PDF content streams, rendered appearance within anti-aliasing tolerance, and untouched Word package parts.
+`pdf.py` maps normalized characters to page/block/line bounding boxes. It creates standard PDF highlight annotations and can apply selected single-line vector-text corrections by removing only the source glyphs and inserting text at the original baseline, size, and color while leaving the page background intact. `static/pdf_preview` is a local Streamlit component that displays one rendered page at a time and returns page/toggle state. `word.py` reads the OOXML package directly and adds comments while preserving source wording. Tests cover exact-occurrence PDF edits, rendered annotations, and untouched Word package parts.
 
 `engines.py` runs Voikko through its native wrapper and a private LanguageTool Java process. LanguageTool uses UTF-16 offsets; `text.py` translates these to Python character indices, including non-BMP characters. Ligatures and soft hyphens retain source mappings. Zero-width and deletion findings receive visible anchors containing the proposed final text.
 
 `pipeline.py` checks long sections in bounded chunks, aggregates offsets, applies glossary/rule filters, merges duplicate ranges, and defaults to a non-overlapping selection. Chunk boundaries can reduce grammar context in unusually long paragraphs. Mixed-language routing operates per text block, not per word; fixed language gives more predictable results. Findings without a non-empty replacement stay in review data but are not exported.
 
-`app.py` serves a local static browser UI and queues one review at a time. A random bearer token is passed through the URL fragment and retained in session storage. The server binds to loopback, validates Host, and does not enable CORS. The application is intended for one local desktop user, not deployment as a public website.
+`streamlit_app.py` provides a local PDF and Word upload/check/download workflow. The original annotated download remains available; PDFs also have a click-to-toggle visual preview and a separate corrected download. Changes are rebuilt from the original upload on each toggle, so reverting restores the original page. Text over images, multi-line findings, or corrections that do not fit safely are disabled for direct PDF editing. The Windows launcher binds Streamlit to loopback; the application is intended for one local desktop user, not deployment as a public website.
 
 ## Tests
 
@@ -17,7 +17,7 @@ python -m ruff check src tests scripts
 python -m pytest -q
 ```
 
-Real engine tests additionally require the prepared runtime and `SPELLCHECK_INTEGRATION=1`. The Windows workflow installs the private embedded Python, private JRE, native Voikko and locked LanguageTool dependencies, runs diagnostics and real engine/document tests, then produces the portable ZIP. No office installation is required to annotate DOCX.
+Real engine tests additionally require the prepared runtime and `SPELLCHECK_INTEGRATION=1`. The Windows workflow installs the private embedded Python, private JRE, native Voikko and locked LanguageTool dependencies, runs diagnostics and real engine/document tests, then produces the portable ZIP. No office installation is required to edit or annotate DOCX.
 
 ## Runtime locks
 

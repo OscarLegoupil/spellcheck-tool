@@ -12,22 +12,21 @@ See the [validation record](docs/validation.md) for tested platforms and workflo
 
 1. Open [Windows builds](https://github.com/OscarLegoupil/spellcheck-tool/actions/workflows/windows.yml), select the latest successful build, and download **Spellcheck-Tool-Windows** under Artifacts. GitHub requires you to be signed in to download build artifacts.
 2. Extract the downloaded archive and the application ZIP inside it into a writable folder, such as Documents. Extract everything; do not run from inside the ZIP.
-3. Double-click **Start.cmd**. Keep its window open while using the application. Your browser opens automatically.
+3. Double-click **Start.cmd**. A simple local Streamlit page opens in your browser. Keep the window open while using it.
 
 The portable package already includes the engines and runtimes. It needs no setup download on the work computer. Corporate application controls can still block portable executables; ask IT to allow the application if that happens.
 
 **From source**
 
-Download this repository with **Code → Download ZIP**. Before extracting, right-click the downloaded ZIP, open **Properties**, select **Unblock** if shown, and click **Apply**. Extract it and run **Setup.cmd** once. Then run **Start.cmd**. Setup uses the current user's writable folder and does not change PowerShell policy, PATH, registry settings or system software. If company policy blocks unsigned PowerShell scripts, use the portable package or ask IT.
+Download this repository with **Code → Download ZIP**. Before extracting, right-click the downloaded ZIP, open **Properties**, select **Unblock** if shown, and click **Apply**. Extract it and run **Setup.cmd** once. Then run **Start.cmd** to open the local Streamlit page. Setup uses the current user's writable folder and does not change PowerShell policy, PATH, registry settings or system software. If company policy blocks unsigned PowerShell scripts, use the portable package or ask IT.
 
 Allow roughly 1 GB of free disk space for setup and extraction. Initial startup of the English engine can take a little time. Downloads are pinned and SHA-256 checked; a changed upstream download fails explicitly.
 
 ## Review a document
 
-1. Choose or drop one or more `.pdf` / `.docx` documents.
-2. Select Finnish, English, or mixed language. For a single-language document, select that language explicitly. Choose British or American English.
-3. Click **Check documents**. Review the selected findings or download immediately with the default non-overlapping selection.
-4. Download the annotated copy. Choose alternatives or exclude findings whenever needed. The original file is never overwritten by the browser workflow.
+1. Upload a searchable PDF or `.docx` and choose Finnish, English, or mixed language.
+2. Click **Check document**. **Download reviewed PDF/DOCX** saves the annotated copy; the uploaded original is never overwritten.
+3. For PDFs, use the page-by-page preview below the download button. Click a highlighted finding to toggle its correction in the preview, then download the corrected PDF when ready. DOCX remains comment-annotated.
 
 A highlight on `recieve` has the comment `receive`. No explanation, rule name or “Suggested correction” prefix is placed in the document. Blank corrections are anchored to nearby text so deletion and insertion suggestions remain readable. The review screen contains the explanations and alternative suggestions.
 
@@ -44,14 +43,15 @@ PDF comments appear on hover or click **when supported by the PDF viewer**. Adob
 | Typography | Repeated words, extra spaces, punctuation spacing and selected number/unit spacing |
 | House style | Accepted words, preferred terminology, ignored rules and reusable JSON profiles |
 | Mixed documents | Deterministic routing by paragraph/text block, with notices for uncertain decisions |
-| Review controls | Batch files, category filters, alternative corrections, exclusion, JSON report and overlap checks |
+| Streamlit workflow | One searchable PDF or `.docx` at a time; download the annotated copy. PDFs also have a visual correction preview with one-click toggles and a separate corrected-PDF download. The command-line workflow retains profile-based checking and JSON reports. |
 
-There are no cloud checks or paid LanguageTool features. These engines find many spelling and rule-based grammar errors; they do not verify facts, meaning or every possible language mistake. Finnish grammar coverage is narrower than English. Suggestions can be wrong; nothing is automatically replaced.
+There are no cloud checks or paid LanguageTool features. These engines find many spelling and rule-based grammar errors; they do not verify facts, meaning or every possible language mistake. Finnish grammar coverage is narrower than English. Suggestions can be wrong; PDF text changes are made only when you click them in the preview.
 
 ## Document support
 
-- **PDF → annotated PDF:** text coordinates identify exact occurrences; words are not located with a global search. Existing annotations, page contents and page geometry are retained. Multi-line findings receive one comment across their highlight areas.
-- **DOCX → annotated DOCX:** body paragraphs and tables, including words split across formatting runs. Run formatting and unrelated package parts are retained. Existing comments remain intact.
+- **PDF → annotated PDF:** supported in Streamlit and the command line. Text coordinates identify exact occurrences; words are not located with a global search. Existing annotations, page contents and page geometry are retained.
+- **PDF → corrected PDF:** single-line vector text can be toggled in the visual preview. The original glyphs are removed without painting over the page background, and replacement text uses the closest available font style. Corrections over artwork, multi-line text, and changes that do not fit safely remain available in the annotated copy only; exact font matching is not guaranteed for embedded/subset fonts.
+- **DOCX → annotated DOCX:** supported in Streamlit and the command line. Body paragraphs and tables, including words split across formatting runs. Run formatting and unrelated package parts are retained. Existing comments remain intact; DOCX text is not directly edited.
 - **Coverage notices:** Word paragraphs containing revisions, fields, hyperlinks, existing comments, content controls or embedded objects are conservatively skipped. Headers, footers, footnotes and endnotes are retained but not checked. Notices are shown in the app and report. Text boxes and rotated PDF text are not checked.
 - **Scanned PDFs:** require an existing searchable OCR layer. Image-only PDFs are rejected with a clear message; the application does not install or perform OCR.
 - **Other formats:** save legacy `.doc` as `.docx` in Word first. PDF/Word conversion is not included; outputs keep the input format. To obtain PDF from reviewed Word, use Word's export/print options, checking how your viewer handles comments.
@@ -61,7 +61,7 @@ See [troubleshooting](docs/troubleshooting.md), [design and development](docs/de
 
 ## Privacy
 
-Documents are processed on your computer. The browser talks only to a loopback service with a random session token, and the English engine runs on loopback too. No analytics, external fonts or checking requests are used. Uploaded reviews are held in memory; the web framework may spool uploads to the operating system's temporary directory during receipt and closes them after reading. Finished reviews expire after two hours on the next application request, or can be removed immediately. Closing the application ends the session. Downloads and exported reports are files you choose to retain; reports include document text.
+Documents are processed on your computer. The Windows launcher binds the Streamlit app to `127.0.0.1`; the English engine also runs locally. No analytics, external fonts or cloud checking requests are used. Uploaded PDFs and reviewed copies stay in the app's memory for the active session and are not saved to disk by the app. Closing the app ends the session. Downloads are files you choose to retain.
 
 ## Development
 
@@ -71,7 +71,7 @@ python -m venv .venv
 python -m pip install -e '.[dev]'
 python scripts/setup_runtime.py
 python -m spellcheck_tool doctor
-python -m spellcheck_tool serve
+streamlit run src/spellcheck_tool/streamlit_app.py --server.address 127.0.0.1
 ```
 
 On Linux/macOS, install compatible native **libvoikko** and **Java 17+** separately. On Windows, `Setup.cmd` installs private copies. `SPELLCHECK_VOIKKO_LIBRARY` can point to a native library directory; `SPELLCHECK_RUNTIME` can point to a prepared runtime directory.

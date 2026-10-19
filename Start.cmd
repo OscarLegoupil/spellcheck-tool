@@ -6,5 +6,5 @@ if not exist "%~dp0.runtime\python\python.exe" (
   pause
   exit /b 1
 )
-"%~dp0.runtime\python\python.exe" -m spellcheck_tool serve
+"%~dp0.runtime\python\python.exe" -m streamlit run src\spellcheck_tool\streamlit_app.py --server.address 127.0.0.1 --browser.gatherUsageStats false
 if errorlevel 1 pause

@@ -7,6 +7,7 @@ import pytest
 from docx import Document as Word
 
 from spellcheck_tool.models import DocumentError, Finding
+from spellcheck_tool.pdf import apply_pdf_changes, pdf_correction_targets
 from spellcheck_tool.pipeline import export, load_document
 from spellcheck_tool.word import NS, parse, serialize, w
 
@@ -71,6 +72,27 @@ def test_pdf_correct_occurrence_and_content_preservation():
         assert notes[-1].rect.x0 > after[0].search_for("recieve")[1].x0 - 10
         assert notes[-1].opacity == pytest.approx(0.28)
         assert notes[-1].info["title"] == ""
+
+
+def test_pdf_visual_correction_replaces_only_selected_occurrence():
+    original = make_pdf()
+    document = load_document("sample.pdf", original)
+    segment = next(s for s in document.segments if "recieve" in s.text)
+    issue = finding(segment, "recieve", "receive", 1)
+    target = pdf_correction_targets(document, [issue])[issue.id]
+    assert target["supported"]
+    corrected = apply_pdf_changes(document, [issue], {issue.id: "receive"})
+    with (
+        fitz.open(stream=original, filetype="pdf") as before,
+        fitz.open(stream=corrected, filetype="pdf") as after,
+    ):
+        assert len(before[0].search_for("recieve")) == 2
+        assert len(after[0].search_for("recieve")) == 1
+        assert len(after[0].search_for("receive")) == 1
+        assert after[0].search_for("receive")[0].width == pytest.approx(
+            before[0].search_for("recieve")[1].width, abs=1
+        )
+        assert any(annotation.info["content"] == "Existing note" for annotation in after[0].annots())
 
 
 def test_docx_split_runs_and_multiple_annotations():

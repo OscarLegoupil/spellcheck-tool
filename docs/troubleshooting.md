@@ -7,8 +7,7 @@
 | PowerShell script blocked by company policy | Use the ready-built portable package or ask IT. Setup does not change execution policy. |
 | Executable blocked by company policy | Ask IT to approve the application. Administrator-free does not override application controls. |
 | Download/checksum failure | Retry after checking your network or proxy. A checksum mismatch means an upstream file changed; do not remove the checksum check. |
-| Browser did not open | Copy the complete local URL printed in the launcher window, including the part after `#`. |
-| Unauthorized / old tab | Open the current launcher's complete URL. Every launch creates a new session token. |
+| Browser did not open | Open the local URL printed in the launcher window. Keep the window open while using the app. |
 | English engine failed | Inspect `.runtime/logs/english-engine.log`, then run the diagnostic command below. Check available memory and private Java files. |
 | Finnish engine failed | Verify `.runtime/voikko/libvoikko-1.dll` and `.runtime/voikko/5/mor-standard/mor.vfst`. Run Setup again if missing. |
 | Nothing visible when hovering | Try clicking the highlight or opening the PDF in Acrobat Reader with comments enabled. Hover is viewer-dependent. |
