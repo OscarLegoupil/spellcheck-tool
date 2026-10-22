@@ -38,5 +38,8 @@ def test_real_engines_and_example_exports(tmp_path):
                 assert len(selected) >= 3, result
                 output = export(doc, findings, selected)
                 (tmp_path / f"{name}_reviewed.{suffix}").write_bytes(output)
+                if doc.kind == "docx":
+                    tracked = export(doc, findings, selected, track_changes=True)
+                    (tmp_path / f"{name}_tracked.docx").write_bytes(tracked)
     finally:
         engines.close()

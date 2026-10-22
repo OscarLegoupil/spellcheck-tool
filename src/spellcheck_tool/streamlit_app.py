@@ -34,7 +34,7 @@ st.set_page_config(page_title="Spellcheck Tool", layout="centered")
 st.title("Document Spellcheck")
 st.write(
     "Upload a searchable PDF or Word document to check it locally. Download a reviewed copy "
-    "with suggested corrections attached as comments; the original wording stays unchanged."
+    "with suggested corrections as comments, or accept and reject Word edits with Track Changes."
 )
 
 with st.form("document-review"):
@@ -99,6 +99,33 @@ if uploaded:
             ),
             type="primary",
         )
+        if result["document"].kind == "docx" and result["findings"]:
+            st.subheader("Review corrections in Word")
+            try:
+                if "tracked_bytes" not in result:
+                    choices = [
+                        {"id": finding.id, "correction": finding.suggestions[0]}
+                        for finding in result["issues"]
+                        if finding.selected and finding.suggestions
+                    ]
+                    result["tracked_bytes"] = export(
+                        result["document"], result["issues"], choices, track_changes=True
+                    )
+                    st.session_state.reviewed_document = result
+                st.download_button(
+                    "Download Word with tracked changes",
+                    data=result["tracked_bytes"],
+                    file_name=f"{Path(uploaded.name).stem}_tracked.docx",
+                    mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                    type="primary",
+                    on_click="ignore",
+                )
+                st.caption(
+                    "Open this copy in Word. On the Review tab, choose All Markup to see the edits, "
+                    "then use Accept or Reject to review each correction. Save when finished."
+                )
+            except DocumentError as exc:
+                st.error(str(exc))
         if result["document"].kind == "pdf":
             st.subheader("PDF correction preview")
             document = result["document"]
@@ -127,7 +154,7 @@ if uploaded:
                     st.session_state.reviewed_document = result
                 except DocumentError as exc:
                     st.error(str(exc))
-                    result["preview_bytes"] = result["original"]
+                    st.caption("Undo the last change before downloading the corrected PDF.")
             preview_data = result.get("preview_bytes", result["original"])
             image, page_width, page_height = render_pdf_page(preview_data, page_number)
             page_findings = []
@@ -167,13 +194,14 @@ if uploaded:
                     f"{unsupported_count} suggestion(s) cannot be applied safely in the PDF preview; "
                     "they remain available in the reviewed copy above."
                 )
-            if selected_ids:
+            if selected_ids and result.get("preview_signature") == signature:
                 st.download_button(
                     "Download corrected PDF",
                     data=preview_data,
                     file_name=f"{Path(uploaded.name).stem}_corrected.pdf",
                     mime="application/pdf",
                     type="primary",
+                    on_click="ignore",
                     key=f"download-corrected-{current_key[0][:16]}",
                 )
                 st.caption("Print the downloaded PDF from your PDF viewer.")

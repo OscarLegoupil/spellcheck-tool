@@ -20,4 +20,12 @@ Windows validation: 2026-10-14, Windows 11 Home x64 (build 26200).
 
 The GitHub Windows workflow repeats setup, tests and portable packaging on each push to `main`. Microsoft Word and Acrobat hover/comment behaviour were not tested on a Windows desktop; the standard annotation/comment structures are covered by automated tests.
 
+Correction download validation: 2026-10-19, Windows.
+
+- **34 tests passed**, including real Finnish/English engine checks and tracked DOCX exports. Ruff checks passed.
+- Chromium with the private Streamlit runtime: English and Finnish Word documents downloaded with 8 and 6 proposed corrections respectively. Their commented downloads remained available. No browser JavaScript errors were observed.
+- Microsoft Word 16.0 opened the actual tracked downloads through COM automation. Accepting all revisions produced the expected corrected text; rejecting all revisions restored the original text. A separate fixture covered a correction spanning bold and plain runs. These were document automation checks, not manual ribbon-click tests.
+- Tests cover individual selected occurrences, adjacent edits, tabs and line breaks, ligatures and soft hyphens, existing comments and revisions, and preservation of every package part other than `word/document.xml`.
+- PDF browser downloads reflected selecting two corrections and undoing one. Streamlit regression tests also cover selections across pages and prevent a failed correction from offering the original PDF as a corrected download or corrupting the last valid preview.
+
 Coverage limits and viewer-dependent behaviour are documented in the README. This record does not claim that every document structure or every language error is supported.

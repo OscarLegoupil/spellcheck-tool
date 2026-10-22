@@ -7,7 +7,7 @@ from .models import DocumentError, Segment
 from .pdf import annotate_pdf, read_pdf
 from .rules import check_rules
 from .text import PROTECTED
-from .word import annotate_word, read_word
+from .word import annotate_word, read_word, track_word_changes
 
 
 def load_document(name, data):
@@ -136,7 +136,9 @@ def review(document, options, engines, progress=None):
     }, findings
 
 
-def export(document, findings, choices):
+def export(document, findings, choices, *, track_changes=False):
+    if track_changes and document.kind != "docx":
+        raise DocumentError("Tracked changes are only available for Word documents.")
     by_id = {f.id: f for f in findings}
     selected, seen = [], set()
     for choice in choices:
@@ -153,6 +155,8 @@ def export(document, findings, choices):
         if f.start < previous.get(f.segment_id, -1):
             raise DocumentError("Two selected findings overlap. Select only one for that passage.")
         previous[f.segment_id] = f.end
+    if track_changes:
+        return track_word_changes(document, selected)
     return (
         annotate_pdf(document, selected)
         if document.kind == "pdf"

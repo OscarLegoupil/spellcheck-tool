@@ -1,6 +1,6 @@
 # Spellcheck Tool
 
-Finnish and English proofreading for PDF and Word documents. Original wording stays intact; possible mistakes receive soft highlights and comments containing **only the proposed correction**.
+Finnish and English proofreading for PDF and Word documents. Reviewed copies preserve the original wording with soft highlights and comments containing **only the proposed correction**. Word documents also offer native tracked changes for accepting or rejecting edits in Word.
 
 Runs locally on Windows 10/11 x64. No administrator rights, subscription, account, API key or installed Python/Java required. Setup downloads free language resources once; document checking then works offline.
 
@@ -26,7 +26,8 @@ Allow roughly 1 GB of free disk space for setup and extraction. Initial startup 
 
 1. Upload a searchable PDF or `.docx` and choose Finnish, English, or mixed language.
 2. Click **Check document**. **Download reviewed PDF/DOCX** saves the annotated copy; the uploaded original is never overwritten.
-3. For PDFs, use the page-by-page preview below the download button. Click a highlighted finding to toggle its correction in the preview, then download the corrected PDF when ready. DOCX remains comment-annotated.
+3. For PDFs, use the page-by-page preview below the download button. Click a highlighted finding to toggle its correction in the preview, then download the corrected PDF when ready.
+4. For Word documents, choose **Download Word with tracked changes** to get a separate `_tracked.docx` copy. Open it in Word, select **Review → All Markup**, and use **Accept** or **Reject** to review the proposed edits. Save when finished. The commented copy remains available above.
 
 A highlight on `recieve` has the comment `receive`. No explanation, rule name or “Suggested correction” prefix is placed in the document. Blank corrections are anchored to nearby text so deletion and insertion suggestions remain readable. The review screen contains the explanations and alternative suggestions.
 
@@ -43,7 +44,7 @@ PDF comments appear on hover or click **when supported by the PDF viewer**. Adob
 | Typography | Repeated words, extra spaces, punctuation spacing and selected number/unit spacing |
 | House style | Accepted words, preferred terminology, ignored rules and reusable JSON profiles |
 | Mixed documents | Deterministic routing by paragraph/text block, with notices for uncertain decisions |
-| Streamlit workflow | One searchable PDF or `.docx` at a time; download the annotated copy. PDFs also have a visual correction preview with one-click toggles and a separate corrected-PDF download. The command-line workflow retains profile-based checking and JSON reports. |
+| Streamlit workflow | One searchable PDF or `.docx` at a time; download the annotated copy. PDFs also have a visual correction preview with one-click toggles and a separate corrected-PDF download. Word documents offer a separate download with native tracked changes. The command-line workflow retains profile-based checking and JSON reports. |
 
 There are no cloud checks or paid LanguageTool features. These engines find many spelling and rule-based grammar errors; they do not verify facts, meaning or every possible language mistake. Finnish grammar coverage is narrower than English. Suggestions can be wrong; PDF text changes are made only when you click them in the preview.
 
@@ -51,7 +52,8 @@ There are no cloud checks or paid LanguageTool features. These engines find many
 
 - **PDF → annotated PDF:** supported in Streamlit and the command line. Text coordinates identify exact occurrences; words are not located with a global search. Existing annotations, page contents and page geometry are retained.
 - **PDF → corrected PDF:** single-line vector text can be toggled in the visual preview. The original glyphs are removed without painting over the page background, and replacement text uses the closest available font style. Corrections over artwork, multi-line text, and changes that do not fit safely remain available in the annotated copy only; exact font matching is not guaranteed for embedded/subset fonts.
-- **DOCX → annotated DOCX:** supported in Streamlit and the command line. Body paragraphs and tables, including words split across formatting runs. Run formatting and unrelated package parts are retained. Existing comments remain intact; DOCX text is not directly edited.
+- **DOCX → annotated DOCX:** supported in Streamlit and the command line. Body paragraphs and tables, including words split across formatting runs. Run formatting and unrelated package parts are retained. Existing comments remain intact; the commented copy preserves the source text.
+- **DOCX → tracked DOCX:** available in Streamlit. Each default selected suggestion becomes a native Word deletion/insertion attributed to Spellcheck Tool. Accepting applies the replacement; rejecting restores the original text and its formatting. Replacement text inherits the first affected run's formatting. Existing comments, revisions and unrelated package parts are retained; paragraphs already containing comments or revisions are not edited.
 - **Coverage notices:** Word paragraphs containing revisions, fields, hyperlinks, existing comments, content controls or embedded objects are conservatively skipped. Headers, footers, footnotes and endnotes are retained but not checked. Notices are shown in the app and report. Text boxes and rotated PDF text are not checked.
 - **Scanned PDFs:** require an existing searchable OCR layer. Image-only PDFs are rejected with a clear message; the application does not install or perform OCR.
 - **Other formats:** save legacy `.doc` as `.docx` in Word first. PDF/Word conversion is not included; outputs keep the input format. To obtain PDF from reviewed Word, use Word's export/print options, checking how your viewer handles comments.

@@ -1,4 +1,5 @@
 from copy import deepcopy
+from datetime import datetime, timezone
 from io import BytesIO
 from zipfile import ZIP_DEFLATED, BadZipFile, ZipFile
 
@@ -176,6 +177,109 @@ def paragraph_text_for_run(run):
         for n in run
         if n.tag in (w("t"), w("tab"), w("br"), w("cr"))
     )
+
+
+def _revision_text(paragraph, accept):
+    """Read either review outcome for a paragraph containing our text revisions."""
+    resolved = deepcopy(paragraph)
+    for revision in list(resolved):
+        if revision.tag not in (w("ins"), w("del")):
+            continue
+        if (revision.tag == w("ins")) == accept:
+            for run in list(revision):
+                for text in run.iter(w("delText")):
+                    text.tag = w("t")
+                revision.addprevious(run)
+        resolved.remove(revision)
+    return paragraph_text(resolved)[0]
+
+
+def track_word_changes(document, selections):
+    """Write native Word insertions/deletions so the reviewer can accept or reject them."""
+    if not selections:
+        return document.data
+    files = package(document.data)
+    root = parse(files["word/document.xml"])
+    paras = paragraphs(root)
+    used_ids = [int(value) for value in root.xpath("//@w:id", namespaces=NS) if value.isdigit()]
+    next_id = max(used_ids, default=-1) + 1
+    timestamp = datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
+    sources, expected = {}, {}
+    for finding, correction in sorted(
+        selections, key=lambda pair: (pair[0].segment_id, -pair[0].start)
+    ):
+        pno = int(finding.segment_id[1:])
+        paragraph = paras[pno]
+        if pno not in sources:
+            if unsafe(paragraph):
+                raise DocumentError("This Word paragraph cannot be edited safely.")
+            raw, _ = paragraph_text(paragraph)
+            normalized, mapping = normalize(raw, list(range(len(raw))))
+            sources[pno] = (raw, normalized, mapping)
+            expected[pno] = raw
+        raw, normalized, mapping = sources[pno]
+        if (
+            not 0 <= finding.start < finding.end <= len(normalized)
+            or normalized[finding.start : finding.end] != finding.original
+        ):
+            raise DocumentError("The Word finding no longer matches the source.")
+        start, end = mapping[finding.start], mapping[finding.end - 1] + 1
+        end_node = boundary(paragraph, end)
+        first = boundary(paragraph, start)
+        if first is None:
+            raise DocumentError("Could not anchor a Word correction.")
+
+        deleted = ET.Element(
+            w("del"),
+            {w("id"): str(next_id), w("author"): "Spellcheck Tool", w("date"): timestamp},
+        )
+        inserted = ET.Element(
+            w("ins"),
+            {w("id"): str(next_id + 1), w("author"): "Spellcheck Tool", w("date"): timestamp},
+        )
+        next_id += 2
+        replacement = ET.SubElement(inserted, w("r"), attrib=dict(first.attrib))
+        props = first.find(w("rPr"))
+        if props is not None:
+            replacement.append(deepcopy(props))
+        # Keep tabs and line breaks as Word elements, rather than literal XML whitespace.
+        replacement_text = correction.replace("\r\n", "\n").replace("\r", "\n")
+        for line_index, line in enumerate(replacement_text.split("\n")):
+            if line_index:
+                ET.SubElement(replacement, w("br"))
+            for tab_index, text in enumerate(line.split("\t")):
+                if tab_index:
+                    ET.SubElement(replacement, w("tab"))
+                if text:
+                    node = ET.SubElement(replacement, w("t"))
+                    node.set("{http://www.w3.org/XML/1998/namespace}space", "preserve")
+                    node.text = text
+
+        first.addprevious(deleted)
+        deleted.addnext(inserted)
+        node = first
+        while node is not None and node is not end_node:
+            following = node.getnext()
+            if node.tag == w("r"):
+                for text in node.iter(w("t")):
+                    text.tag = w("delText")
+                deleted.append(node)
+            node = following
+        expected[pno] = expected[pno][:start] + replacement_text + expected[pno][end:]
+
+    files["word/document.xml"] = serialize(root)
+    output = BytesIO()
+    with ZipFile(output, "w", ZIP_DEFLATED) as archive:
+        for name, content in files.items():
+            archive.writestr(name, content)
+    checked = paragraphs(parse(package(output.getvalue())["word/document.xml"]))
+    for pno, (original, _, _) in sources.items():
+        if (
+            _revision_text(checked[pno], accept=False) != original
+            or _revision_text(checked[pno], accept=True) != expected[pno]
+        ):
+            raise DocumentError("Output verification failed: Word revisions changed unrelated text.")
+    return output.getvalue()
 
 
 def annotate_word(document, selections):
